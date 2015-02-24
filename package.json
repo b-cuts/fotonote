@@ -1,0 +1,27 @@
+{
+  "name": "FotoNote",
+  "version": "0.0.1",
+  "description": "FotoNote",
+  "author": "Maciej Rumianowski",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies" : {
+    "mocha":"2.1.0",
+    "mocha-jsdom":"0.2.1",
+    "jsdom":"3.1.2",
+    "localStorage": "1.0.3",
+    "requirejs":"2.1.16",
+    "chai":"2.0.0",
+    "sinon":"1.12.2",
+    "yadda":"0.11.5",
+    "selenium-webdriver":"2.44.0",
+    "cordova":"4.2.0",
+    "grunt":"0.4.5",
+    "grunt-cordova-ng ":"0.2.4",
+    "grunt-lodash":"0.4.0",
+    "grunt-mocha-test":"0.12.7"
+  },
+  "scripts": {
+  }
+}
