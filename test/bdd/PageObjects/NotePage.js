@@ -1,5 +1,6 @@
 var webdriver = require('selenium-webdriver'),
     until = webdriver.until,
+    _ = require('lodash'),
     By = webdriver.By,
     should = require('chai').should();
 
@@ -17,12 +18,12 @@ NotePage.prototype = {
       return this;
     },
     
-    enterText : function(text) {
-      var driver = this.driver;
+    enterText : function() {
+      var driver = this.driver, var_args = _.toArray(arguments);
       
       driver.findElement(By.id('note-text')).then(function(element) {
         driver.wait(until.elementIsVisible(element), 2000);
-        element.sendKeys(text);
+        element.sendKeys(var_args);
       });
       
       return this;

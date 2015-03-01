@@ -9,6 +9,8 @@ define([ "./PageView"], function(PageView) {
     constructor : function(options) {
       PageView.prototype.constructor.apply(this, arguments);
       
+      this.noteId = options.noteId;
+      this.editing = typeof options.noteId != "undefined";
       this.noteCollection = options.noteCollection;
       
       this.noteCollection.on("add", this.save)
@@ -19,8 +21,14 @@ define([ "./PageView"], function(PageView) {
     },
     
     add : function() {
-      var text = this.$("#note-text");
-      this.noteCollection.add({text : text.val().trim()});
+      var text = this.$("#note-text").val().trim();
+      if (this.editing) {
+        var note = this.noteCollection.get(this.noteId);
+        note.set({text: text});
+        note.save();
+      } else {
+        this.noteCollection.add({text : text});
+      }
     },
     
     save : function(note) {
@@ -28,7 +36,11 @@ define([ "./PageView"], function(PageView) {
     },
     
     render : function() {
-      PageView.prototype.render.apply(this, [{text:''}]);
+      var note = {text:''};
+      if (this.editing) {
+        note = this.noteCollection.get(this.noteId).toJSON();
+      }
+      PageView.prototype.render.apply(this, [note]);
       return this;
     }
   });

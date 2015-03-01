@@ -4,7 +4,8 @@ define(["backbone", "jquery", "./view/HomeView", "./view/NoteView", "./Storage"]
     
     routes : {
       "" : "home",
-      "add" : "add"
+      "add" : "add",
+      "note/:id" : "edit"
     },
 
     initialize : function() {
@@ -26,6 +27,16 @@ define(["backbone", "jquery", "./view/HomeView", "./view/NoteView", "./Storage"]
       var noteCollection = this.storage.noteCollection;
       
       this.changePage(new NoteView({
+        noteCollection : noteCollection
+        }));
+    },
+    
+    edit : function(noteId) {
+      console.log('#edit');
+      var noteCollection = this.storage.noteCollection;
+      
+      this.changePage(new NoteView({
+        noteId : noteId,
         noteCollection : noteCollection
         }));
     },

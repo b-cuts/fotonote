@@ -1,1 +1,4 @@
-<li id="note-<%= id %>" class="note-item"><%= title %></li>
+<li id="note-<%= id %>" class="note-item">
+  <a href="#note/<%= id %>"><%= title %></a>
+  <a href="#" class="note-item-delete" id="delete-<%= id %>">delete</a>
+</li>

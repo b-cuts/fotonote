@@ -45,9 +45,13 @@
     with (obj) {
     __p += '<li id="note-' +
     ((__t = ( id )) == null ? '' : __t) +
-    '" class="note-item">' +
+    '" class="note-item">\n  <a href="#note/' +
+    ((__t = ( id )) == null ? '' : __t) +
+    '">' +
     ((__t = ( title )) == null ? '' : __t) +
-    '</li>\n';
+    '</a>\n  <a href="#" class="note-item-delete" id="delete-' +
+    ((__t = ( id )) == null ? '' : __t) +
+    '">delete</a>\n</li>\n';
 
     }
     return __p
@@ -59,7 +63,9 @@
     with (obj) {
     __p += '    <div data-role="header" class="ui-header">\n      <h1 class="ui-title">Note</h1>\n      <div data-role="navbar">\n        <ul>\n          <li><a id="nav-save" href="#">save</a></li>\n        </ul>\n      </div>\n    </div>\n    <div role="main" class="ui-content note-page">\n      <form id="new-event-form">\n        <div class="ui-field-contain" id="note-text-field">\n          <textarea cols="40" rows="8" name="note-text" id="note-text" value="' +
     ((__t = ( text )) == null ? '' : __t) +
-    '"></textarea>\n        </div>\n      </form>\n    </div>\n';
+    '">' +
+    ((__t = ( text )) == null ? '' : __t) +
+    '</textarea>\n        </div>\n      </form>\n    </div>\n';
 
     }
     return __p
